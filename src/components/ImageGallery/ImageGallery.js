@@ -1,6 +1,7 @@
-// import React from "react";
+import s from './ImageGallery.module.css' 
+
 const ImageGallery = ({hits, children}) => {
-  return <ul className="gallery">{children}</ul>;
+  return <ul className={s.gallery}>{children}</ul>;
 };
 
 export default ImageGallery;

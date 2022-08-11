@@ -1,5 +1,6 @@
+import s from './Button.module.css'
 
 const LoadMore = ({more}) => {
-    return <button onClick={more} className="button">Load More</button>
+    return <button onClick={more} className={s.button}>Load More</button>
 }
 export default LoadMore;
