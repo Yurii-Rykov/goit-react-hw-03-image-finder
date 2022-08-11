@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/css/main.5c8a6b35.css",
-    "main.js": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/js/main.f3f91bf3.js",
+    "main.js": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/js/main.fb06752b.js",
     "index.html": "/Yurii-Rykov/goit-react-hw-03-image-finder/index.html",
     "main.5c8a6b35.css.map": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/css/main.5c8a6b35.css.map",
-    "main.f3f91bf3.js.map": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/js/main.f3f91bf3.js.map"
+    "main.fb06752b.js.map": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/js/main.fb06752b.js.map"
   },
   "entrypoints": [
     "static/css/main.5c8a6b35.css",
-    "static/js/main.f3f91bf3.js"
+    "static/js/main.fb06752b.js"
   ]
 }
