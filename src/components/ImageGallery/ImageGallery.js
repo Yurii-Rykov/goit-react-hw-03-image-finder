@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import s from './ImageGallery.module.css' 
 
 const ImageGallery = ({hits, children}) => {
@@ -5,3 +6,7 @@ const ImageGallery = ({hits, children}) => {
 };
 
 export default ImageGallery;
+
+ImageGallery.propTypes = {
+  children: PropTypes.node.isRequired
+}

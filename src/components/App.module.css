@@ -4,9 +4,9 @@
     grid-gap: 16px;
     padding-bottom: 24px;
   }
-  .loading {
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-  }
+.noImg {
+  font-size: 30px;
+  color: #3F51B5;
+  text-align: center;
+}
+

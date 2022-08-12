@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types'
 import { toast } from 'react-toastify'
 import { ReactComponent as Icon } from "../icons/searchIcon.svg";
 import s from './Searchbar.module.css'
@@ -45,3 +46,8 @@ state = {
 }
 
 export default Serchbar;
+
+
+Serchbar.propTypes = {
+  propSubmit: PropTypes.func.isRequired
+}

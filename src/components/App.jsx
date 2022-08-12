@@ -6,7 +6,7 @@ import ImageGalleryItem from './ImageGalleryItem/ImageGalleryItem';
 import LoadMore from './Button/Button';
 import { FetchApi } from './FetchApi/FetchApi';
 import Modal from './Modal/Modal';
-import { ThreeDots } from 'react-loader-spinner';
+import Loader from './Loader/Loader';
 
 import s from './App.module.css';
 
@@ -91,28 +91,18 @@ export default class App extends Component {
             <ImageGalleryItem propHits={gallery} onImgClick={this.onImgClick} />
           )}
 
-          {status === 'pending' && (
-            <div className={s.loading}>
-              <ThreeDots
-                height="80"
-                width="80"
-                radius="9"
-                color="#3F51B5"
-                ariaLabel="three-dots-loading"
-                wrapperStyle={{}}
-                wrapperClassName=""
-                visible={true}
-              />
-            </div>
+          {status === 'pending' && <Loader />}
+
+          {status === 'rejected' && (
+            <div className={s.noImg}>Error please try again later</div>
           )}
-          {status === 'rejected' && <div>No images</div>}
         </ImageGallery>
 
         {gallery.length === 0 && search !== '' && status !== 'pending' && (
-          <div>No images</div>
+          <div className={s.noImg}>There are no images for your request..</div>
         )}
 
-        {search !== '' && gallery.length !== 0 && (
+        {search !== '' && gallery.length !== 0 && gallery.length >= 12 && (
           <LoadMore more={this.loadMore} />
         )}
 
