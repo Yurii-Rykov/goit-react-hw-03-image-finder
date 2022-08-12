@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { toast } from 'react-toastify'
+import { ReactComponent as Icon } from "../icons/searchIcon.svg";
 import s from './Searchbar.module.css'
 
 class Serchbar extends Component {
@@ -26,7 +27,7 @@ state = {
         <header className={s.searchbar}>
         <form onSubmit={this.submitSerch} className={s.form} >
           <button type="submit" className={s.button}>
-            <span className={s.button_label}>Search</span>
+            <Icon className={s.button_label}/>
           </button>
       
           <input

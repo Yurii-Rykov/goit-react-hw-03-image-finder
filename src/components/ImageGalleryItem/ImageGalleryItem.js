@@ -1,12 +1,12 @@
 import React from 'react';
 import s from './ImageGalleryItem.module.css'
 
-const ImageGalleryItem = ({propHits}) => {
-
+const ImageGalleryItem = ({propHits, onImgClick}) => {
   return propHits.map(el => (
-    <li key={el.id} className={s.ImageGalleryItem}>
-      <img src={el.webformatURL} alt="" width="300"  className={s.ImageGalleryItem_image}/>
+    <li key={el.id} className={s.ImageGalleryItem} onClick={() => onImgClick(el.largeImageURL)}>
+      <img src={el.webformatURL} alt="" width="300" className={s.ImageGalleryItem_image}/>
     </li>
   ))}
+
 
 export default ImageGalleryItem;

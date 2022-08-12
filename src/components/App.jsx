@@ -5,7 +5,10 @@ import ImageGallery from './ImageGallery/ImageGallery';
 import ImageGalleryItem from './ImageGalleryItem/ImageGalleryItem';
 import LoadMore from './Button/Button';
 import { FetchApi } from './FetchApi/FetchApi';
-import s from './App.module.css'
+import Modal from './Modal/Modal';
+import { ThreeDots } from 'react-loader-spinner';
+
+import s from './App.module.css';
 
 export default class App extends Component {
   state = {
@@ -15,6 +18,9 @@ export default class App extends Component {
     error: null,
     page: 1,
     gallery: [],
+    isModalOpen: false,
+    imgUrl: '',
+    imgAlt: '',
   };
 
   loadMore = () => {
@@ -27,16 +33,33 @@ export default class App extends Component {
     this.setState({ search, page: 1, gallery: [] });
   };
 
-  componentDidMount() {
-    this.setState({ status: 'pending' });
-    const query = this.state.search || '';
+  openModal = () => {
+    this.setState({ isModalOpen: true });
+  };
 
-    FetchApi(query, this.state.page)
-      .then(({ hits }) => {
-        this.setState({ gallery: hits, status: 'resolved' });
-      })
-      .catch(error => this.setState({ error, status: 'rejected' }));
-  }
+  closeModal = () => {
+    this.setState({ isModalOpen: false });
+  };
+
+  onImgClick = (url, alt) => {
+    this.setState(() => ({
+      imgUrl: url,
+      imgAlt: alt,
+    }));
+
+    this.openModal();
+  };
+
+  // componentDidMount() {
+  //   this.setState({ status: 'pending' });
+  //   const query = this.state.search || '';
+
+  //   FetchApi(query, this.state.page)
+  //     .then(({ hits }) => {
+  //       this.setState({ gallery: hits, status: 'resolved' });
+  //     })
+  //     .catch(error => this.setState({ error, status: 'rejected' }));
+  // }
 
   componentDidUpdate(prevProps, prevState) {
     if (
@@ -58,20 +81,46 @@ export default class App extends Component {
   }
 
   render() {
-    const { status } = this.state;
+    const { status, imgUrl, imgAlt, isModalOpen, gallery, search } = this.state;
 
     return (
       <div className={s.app}>
         <Serchbar propSubmit={this.hendleFormSubmit} />
         <ImageGallery>
-          {status !== 'rejected' && this.state.gallery.length > 0 && (
-            <ImageGalleryItem propHits={this.state.gallery} />
+          {status !== 'rejected' && gallery.length > 0 && (
+            <ImageGalleryItem propHits={gallery} onImgClick={this.onImgClick} />
           )}
-          {status === 'pending' && <div>Loading...</div>}
+
+          {status === 'pending' && (
+            <div className={s.loading}>
+              <ThreeDots
+                height="80"
+                width="80"
+                radius="9"
+                color="#3F51B5"
+                ariaLabel="three-dots-loading"
+                wrapperStyle={{}}
+                wrapperClassName=""
+                visible={true}
+              />
+            </div>
+          )}
           {status === 'rejected' && <div>No images</div>}
         </ImageGallery>
-        <LoadMore more={this.loadMore} />
+
+        {gallery.length === 0 && search !== '' && status !== 'pending' && (
+          <div>No images</div>
+        )}
+
+        {search !== '' && gallery.length !== 0 && (
+          <LoadMore more={this.loadMore} />
+        )}
+
         <ToastContainer autoClose={3000} />
+
+        {isModalOpen && (
+          <Modal propModalUrl={imgUrl} propClose={this.closeModal} />
+        )}
       </div>
     );
   }
