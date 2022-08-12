@@ -21,7 +21,7 @@ class Modal extends React.Component {
     return (
       <div onClick={() => propClose()} className={s.overlay}>
         <div className={s.modal}>
-          <img src={propModalUrl} alt="/" />
+          <img src={propModalUrl} alt="images" />
         </div>
       </div>
     );

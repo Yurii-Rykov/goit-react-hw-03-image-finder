@@ -20,7 +20,6 @@ export default class App extends Component {
     gallery: [],
     isModalOpen: false,
     imgUrl: '',
-    imgAlt: '',
   };
 
   loadMore = () => {
@@ -41,10 +40,9 @@ export default class App extends Component {
     this.setState({ isModalOpen: false });
   };
 
-  onImgClick = (url, alt) => {
+  onImgClick = (url) => {
     this.setState(() => ({
       imgUrl: url,
-      imgAlt: alt,
     }));
 
     this.openModal();
@@ -81,7 +79,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { status, imgUrl, imgAlt, isModalOpen, gallery, search } = this.state;
+    const { status, imgUrl, isModalOpen, gallery, search } = this.state;
 
     return (
       <div className={s.app}>

@@ -5,7 +5,7 @@ import s from './ImageGalleryItem.module.css'
 const ImageGalleryItem = ({propHits, onImgClick}) => {
   return propHits.map(el => (
     <li key={el.id} className={s.ImageGalleryItem} onClick={() => onImgClick(el.largeImageURL)}>
-      <img src={el.webformatURL} alt="" width="300" className={s.ImageGalleryItem_image}/>
+      <img src={el.webformatURL} alt="images" width="300" className={s.ImageGalleryItem_image}/>
     </li>
   ))}
 
