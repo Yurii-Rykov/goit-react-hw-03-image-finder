@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/css/main.5c8a6b35.css",
-    "main.js": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/js/main.fb06752b.js",
+    "main.css": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/css/main.2f05e9de.css",
+    "main.js": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/js/main.a7f8ba9a.js",
     "index.html": "/Yurii-Rykov/goit-react-hw-03-image-finder/index.html",
-    "main.5c8a6b35.css.map": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/css/main.5c8a6b35.css.map",
-    "main.fb06752b.js.map": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/js/main.fb06752b.js.map"
+    "static/media/searchIcon.svg": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/media/searchIcon.c9cd6abcdbddc217b6a4153791a0bca9.svg",
+    "main.2f05e9de.css.map": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/css/main.2f05e9de.css.map",
+    "main.a7f8ba9a.js.map": "/Yurii-Rykov/goit-react-hw-03-image-finder/static/js/main.a7f8ba9a.js.map"
   },
   "entrypoints": [
-    "static/css/main.5c8a6b35.css",
-    "static/js/main.fb06752b.js"
+    "static/css/main.2f05e9de.css",
+    "static/js/main.a7f8ba9a.js"
   ]
 }
