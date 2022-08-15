@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+
 
 export const FetchApi = (query, page) => {
   return  fetch(
@@ -12,7 +12,3 @@ export const FetchApi = (query, page) => {
         })
 }
 
-FetchApi.propTypes = {
-  query: PropTypes.string.isRequired,
-  page: PropTypes.number
-}

@@ -4,7 +4,7 @@ import Serchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import ImageGalleryItem from './ImageGalleryItem/ImageGalleryItem';
 import LoadMore from './Button/Button';
-import { FetchApi } from './FetchApi/FetchApi';
+import { FetchApi } from '../FetchApi/FetchApi';
 import Modal from './Modal/Modal';
 import Loader from './Loader/Loader';
 
@@ -27,25 +27,23 @@ export default class App extends Component {
   };
 
   hendleFormSubmit = search => {
-    if (!search.length) return;
+    if(this.state.search === search || !search.length){
+      return 
+    }
 
     this.setState({ search, page: 1, gallery: [] });
-  };
-
-  openModal = () => {
-    this.setState({ isModalOpen: true });
-  };
+  }; 
 
   closeModal = () => {
-    this.setState({ isModalOpen: false });
+    this.setState({ isModalOpen: false, imgUrl: '' });
   };
 
   onImgClick = (url) => {
     this.setState(() => ({
       imgUrl: url,
+      isModalOpen: true,
     }));
 
-    this.openModal();
   };
 
   // componentDidMount() {
@@ -83,7 +81,7 @@ export default class App extends Component {
 
     return (
       <div className={s.app}>
-        <Serchbar propSubmit={this.hendleFormSubmit} />
+        <Serchbar propSubmit={this.hendleFormSubmit} propSearch={this.state.search}/>
         <ImageGallery>
           {status !== 'rejected' && gallery.length > 0 && (
             <ImageGalleryItem propHits={gallery} onImgClick={this.onImgClick} />

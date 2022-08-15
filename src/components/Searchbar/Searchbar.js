@@ -19,8 +19,10 @@ state = {
           toast.info('Enter images!')
           return;
         }
+        
         this.props.propSubmit(this.state.search)
         this.setState({search: ''})
+       
     }
 
     render() {
